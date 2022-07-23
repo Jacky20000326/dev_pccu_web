@@ -7,7 +7,10 @@ import UploadVideoReducer from "./UploadVideoSlice";
 import UploadTeacherReducer from "./UploadTeacherSlice";
 import UploadTopicReducer from "./TopicSlice";
 import MemberReducer from "./AuthSlice.ts";
-export default combineReducers({
+// 建立store(redux)
+import { configureStore } from "@reduxjs/toolkit";
+
+let AllReducerCombine = combineReducers({
   AnnouncementReducer,
   CMSInfoReducer,
   UploadImageReducer,
@@ -16,3 +19,10 @@ export default combineReducers({
   UploadTopicReducer,
   MemberReducer,
 });
+
+export const store = configureStore({
+  reducer: AllReducerCombine,
+});
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
