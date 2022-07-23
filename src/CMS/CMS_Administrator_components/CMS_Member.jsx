@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { GetAllMember, DeletePermissions } from "../../Store/AuthSlice"
+import { GetAllMember, DeletePermissions } from "../../Store/AuthSlice.ts"
 import { useSelector, useDispatch } from "react-redux"
 import MessageModel from '../../components/Global_Components/MessageModel'
 import { useNavigate } from "react-router-dom"

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk,PayloadAction } from "@reduxjs/toolkit"
 import axios from "axios"
 
 
@@ -14,7 +14,7 @@ type MemberType = {
 type initialStateType = {
     Auth: boolean,
     loading: boolean,
-    allMember: MemberType | null,
+    allMember: MemberType[] | null,
     dbMsg:{
         result: string,
         message:string
@@ -24,8 +24,8 @@ type initialStateType = {
 export const GetAllMember = createAsyncThunk(
     'GetAllMember',
     async () => {
-        let result = await axiox.get("http://localhost:3003/api/auth/getAllMember").then(res => res.data)
-        return result
+        let result = await axios.get("http://localhost:3003/api/auth/getAllMember").then(res => res.data)
+        return result.data
     }
 )
 
@@ -53,25 +53,24 @@ const AuthSlice = createSlice({
     name: 'AuthSlice',
     initialState,
     reducers: {
-        authValidation: (state, { payload }) => {
-            console.log(payload)
-            state.Auth = payload
+        authValidation: (state, action:PayloadAction<boolean>) => {
+            state.Auth = action.payload
         },
 
     },
-    extraReducers: {
-        [GetAllMember.pending]: (state, action) => {
+    extraReducers:(builder)=> {
+        builder.addCase(GetAllMember.pending, (state, action) => {
             state.loading = true
-        },
-        [GetAllMember.fulfilled]: (state, { payload }) => {
+        }),
+        builder.addCase(GetAllMember.fulfilled, (state, action:PayloadAction<MemberType[]>) => {
             state.loading = false
-            state.allMember = payload.data
-        },
+            state.allMember = action.payload
+        }),
 
-        [DeletePermissions.fulfilled]: (state, { payload }) => {
+        builder.addCase(DeletePermissions.fulfilled, (state, { payload }) => {
             state.dbMsg.result = payload.result
             state.dbMsg.message = payload.msg
-        },
+        })
 
     }
 
