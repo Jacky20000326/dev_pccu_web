@@ -22,7 +22,7 @@ const Home = () => {
 
 
 const SeparateImg = styled.div`
-				background-image: url("https://scontent.ftpe2-1.fna.fbcdn.net/v/t31.18172-8/477264_364687616924752_589266275_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=HTQY6glR_R4AX-zYhEJ&_nc_ht=scontent.ftpe2-1.fna&oh=00_AT-cy7EA0Lr9rNfa3dupEwiTIEXkIko4QjPVYDRzQa9HaQ&oe=62BA6F50");
+				background-image: url("https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.6435-9/73322119_2781121428588037_4938034023172669440_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=gJOrsTrVSFAAX87H3JT&_nc_ht=scontent.ftpe8-3.fna&oh=00_AT8bZWCTXCw3ObYkfsdQMDeY9oRs4urbB4qx7wEBwR5g_Q&oe=6342BF6A");
 				background-size: cover;
 				background-attachment: fixed;
 				background-position: center center;
