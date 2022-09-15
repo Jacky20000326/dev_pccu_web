@@ -3,7 +3,7 @@ import { AiFillSafetyCertificate, AiOutlineCheck, AiOutlineClose } from "react-i
 import styled from 'styled-components'
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
-import { authValidation } from "../../Store/AuthSlice.ts"
+import { authValidation } from "../../Store/AuthSlice.js"
 import { useDispatch, useSelector } from "react-redux"
 import { motion } from "framer-motion"
 const Passport = () => {
