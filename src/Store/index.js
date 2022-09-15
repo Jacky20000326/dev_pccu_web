@@ -6,7 +6,7 @@ import UploadImageReducer from "./UploadImageSlice";
 import UploadVideoReducer from "./UploadVideoSlice";
 import UploadTeacherReducer from "./UploadTeacherSlice";
 import UploadTopicReducer from "./TopicSlice";
-import MemberReducer from "./AuthSlice.ts";
+import MemberReducer from "./AuthSlice.js";
 // 建立store(redux)
 import { configureStore } from "@reduxjs/toolkit";
 
@@ -24,5 +24,4 @@ export const store = configureStore({
   reducer: AllReducerCombine,
 });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+

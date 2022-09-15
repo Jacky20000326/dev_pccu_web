@@ -2,24 +2,9 @@ import { createSlice, createAsyncThunk,PayloadAction } from "@reduxjs/toolkit"
 import axios from "axios"
 
 
-type MemberType = {
-    M_id: number,
-    M_name: string,
-    M_password: string,
-    M_gmail: string,
-    M_validate: number,
-    M_createTime: string
-}
 
-type initialStateType = {
-    Auth: boolean,
-    loading: boolean,
-    allMember: MemberType[] | null,
-    dbMsg:{
-        result: string,
-        message:string
-    }
-}
+
+
 
 export const GetAllMember = createAsyncThunk(
     'GetAllMember',
@@ -39,7 +24,7 @@ export const DeletePermissions = createAsyncThunk(
 
 
 
-const initialState:initialStateType = {
+const initialState = {
     Auth: false,
     loading: true,
     allMember: null,
@@ -53,7 +38,7 @@ const AuthSlice = createSlice({
     name: 'AuthSlice',
     initialState,
     reducers: {
-        authValidation: (state, action:PayloadAction<boolean>) => {
+        authValidation: (state, action) => {
             state.Auth = action.payload
         },
 
@@ -62,7 +47,7 @@ const AuthSlice = createSlice({
         builder.addCase(GetAllMember.pending, (state, action) => {
             state.loading = true
         }),
-        builder.addCase(GetAllMember.fulfilled, (state, action:PayloadAction<MemberType[]>) => {
+        builder.addCase(GetAllMember.fulfilled, (state, action) => {
             state.loading = false
             state.allMember = action.payload
         }),

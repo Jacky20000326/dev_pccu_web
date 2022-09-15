@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 // 設定全域所需要使用的主題樣式
 import { ThemeProvider } from "styled-components";
 // 取得所有Reducer
-import { store } from "./Store/index.ts"
+import { store } from "./Store/index.js"
 import { Provider } from "react-redux";
 
 
