@@ -22,8 +22,6 @@ export const DeletePermissions = createAsyncThunk(
     }
 )
 
-
-
 const initialState = {
     Auth: false,
     loading: true,
@@ -41,22 +39,20 @@ const AuthSlice = createSlice({
         authValidation: (state, action) => {
             state.Auth = action.payload
         },
-
     },
-    extraReducers:(builder)=> {
-        builder.addCase(GetAllMember.pending, (state, action) => {
-            state.loading = true
-        }),
-        builder.addCase(GetAllMember.fulfilled, (state, action) => {
+    extraReducers:{
+        [GetAllMember.pending]: (state, { payload }) => {
+            state.loaging = true
+        },
+        [GetAllMember.fulfilled]: (state, { payload }) => {
             state.loading = false
-            state.allMember = action.payload
-        }),
-
-        builder.addCase(DeletePermissions.fulfilled, (state, { payload }) => {
+            state.allMember = payload
+        },
+       
+        [DeletePermissions.fulfilled]: (state, { payload }) => {
             state.dbMsg.result = payload.result
             state.dbMsg.message = payload.msg
-        })
-
+        },
     }
 
 })
