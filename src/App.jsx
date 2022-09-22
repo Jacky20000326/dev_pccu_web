@@ -1,3 +1,4 @@
+
 import React from "react";
 import Department from "./pages/Department";
 import Index from "./pages/Index"
@@ -53,7 +54,8 @@ import CMS_Teacher from "./CMS/CMS_Administrator_components/CMS_Teacher"
 // Not Found Page
 import Not_Found_Page from "./pages/Not_Found_Page";
 import { useSelector } from "react-redux"
-
+// bulma
+import 'bulma/css/bulma.min.css';
 
 
 
